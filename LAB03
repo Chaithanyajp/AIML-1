@@ -10,7 +10,7 @@ data = {
     "High-Performance Edge": ["Yes", "No", "Yes", "No", "Yes"]
 }
 
-# Convert to DataFrame
+# Convert dictionary to DataFrame
 df = pd.DataFrame(data)
 
 # Save as CSV
@@ -33,11 +33,11 @@ for i, row in dataset.iterrows():
     if row["High-Performance Edge"] == "Yes":
         for j in range(len(hypothesis)):
             if hypothesis[j] == '0':
-                hypothesis[j] = row[j]
-            elif hypothesis[j] != row[j]:
+                hypothesis[j] = row.iloc[j]
+            elif hypothesis[j] != row.iloc[j]:
                 hypothesis[j] = '?'
 
-    print(f"\nHypothesis after processing Row {i+1}:")
+    print(f"\nHypothesis after processing Row {i + 1}:")
     print(hypothesis)
 
 print("\n===== FINAL SPECIFIC HYPOTHESIS =====")
